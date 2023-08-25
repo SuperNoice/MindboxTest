@@ -1,14 +1,18 @@
 ﻿namespace FiguresLib
 {
-    public class Triangle : IFigure
+    public struct Triangle : IFigure
     {
-        public double SideA { get; set; }
-        public double SideB { get; set; }
-        public double SideC { get; set; }
+        public double SideA { get; private set; }
+        public double SideB { get; private set; }
+        public double SideC { get; private set; }
         public bool IsRight => CheckRight();
 
         public Triangle(double sideA, double sideB, double sideC)
         {
+            if (sideA <= 0 || sideB <= 0 || sideC <= 0)
+            {
+                throw new ArgumentException("Сторона треугольника не может быть меньше либо равна 0");
+            }
             SideA = sideA;
             SideB = sideB;
             SideC = sideC;

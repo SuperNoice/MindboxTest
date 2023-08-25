@@ -23,7 +23,7 @@ namespace FiguresLibTests
 
             Assert.IsTrue(triangle.IsRight);
 
-            triangle.SideA = 4;
+            triangle = new Triangle(4, 4, 3);
 
             Assert.IsFalse(triangle.IsRight);
         }

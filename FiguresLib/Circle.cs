@@ -1,11 +1,15 @@
 ﻿namespace FiguresLib
 {
-    public class Circle : IFigure
+    public struct Circle : IFigure
     {
-        public double Radius { get; set; }
+        public double Radius { get; private set; }
 
         public Circle(double radius)
         {
+            if (radius < 0)
+            {
+                throw new ArgumentException("Рариус круга не может быть меньше 0");
+            }
             Radius = radius;
         }
 
